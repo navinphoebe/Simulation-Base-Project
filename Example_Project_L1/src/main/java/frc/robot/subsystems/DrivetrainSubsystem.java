@@ -26,7 +26,6 @@ public class DrivetrainSubsystem extends SubsystemBase {
   public DifferentialDriveWheelSpeeds m_speeds = new DifferentialDriveWheelSpeeds(0, 0);
   public Pose2d m_pose;
   public double m_rotationRadians;
-  public static final double WHEEL_CIRCUMFRANCE = Units.inchesToMeters(4);
   public static final double DRIVETRAIN_TRACKWIDTH_METERS = Units.inchesToMeters(20.811607);
 
   private final DifferentialDriveKinematics m_kinematics = new DifferentialDriveKinematics(
@@ -35,8 +34,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
   public DifferentialDriveOdometry m_odometry = new DifferentialDriveOdometry(new Rotation2d(m_rotationRadians), 0, 0,
       new Pose2d());
 
-  public DrivetrainSubsystem() {
-  }
+  public DrivetrainSubsystem() {}
 
   @AutoLogOutput // Periodically logs the Pose of the simulated robot
   public Pose2d getPose() {
