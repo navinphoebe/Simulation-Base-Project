@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.DrivetrainDefaultCommand;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.util.CoralVisualizer;
@@ -79,7 +80,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return new DrivetrainDefaultCommand(m_drivetrain, m_driverController);
+    return new AutonomousDistance(m_drivetrain);
   }
 
   public Command getDrivetrainCommand() {

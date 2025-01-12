@@ -25,6 +25,7 @@ public final class Constants {
   public static final Mode currentMode = Mode.SIM;
   public static final Integer CONTROLLER_AXIS_VALUE = 4;
   public static final Integer KEYBOARD_AXIS_VALUE = 0;
+  public static final double AUTO_TURNING_DEADBAND = 5;
 
   public static enum Mode {
     /** Running on a real robot. */
