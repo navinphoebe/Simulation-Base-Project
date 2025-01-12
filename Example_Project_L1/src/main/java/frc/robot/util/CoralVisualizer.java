@@ -23,7 +23,7 @@ import org.littletonrobotics.junction.AutoLogOutput;
 import org.littletonrobotics.junction.Logger;
 
 public class CoralVisualizer {
-  private static final double shotSpeed = 9.0; // Meters per sec
+  private static final double shotSpeed = 1; // Meters per sec
   private static Supplier<Pose2d> robotPoseSupplier;
   public static final List<Translation2d> autoNotes = new ArrayList<>();
   public static boolean hasNote = false;

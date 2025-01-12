@@ -35,7 +35,8 @@ public class DrivetrainSubsystem extends SubsystemBase {
   public DifferentialDriveOdometry m_odometry = new DifferentialDriveOdometry(new Rotation2d(m_rotationRadians), 0, 0,
       new Pose2d());
 
-  public DrivetrainSubsystem() {}
+  public DrivetrainSubsystem() {
+  }
 
   @AutoLogOutput // Periodically logs the Pose of the simulated robot
   public Pose2d getPose() {
@@ -82,5 +83,9 @@ public class DrivetrainSubsystem extends SubsystemBase {
 
   public void setDisabled() {
     drive(0, 0);
+  }
+
+  public void setPose(Pose2d pose) {
+    m_odometry.resetPose(pose);
   }
 }

@@ -5,6 +5,8 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.DrivetrainSubsystem;
+import frc.robot.util.CoralVisualizer;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 public class AutonomousDistance extends SequentialCommandGroup {
@@ -16,9 +18,11 @@ public class AutonomousDistance extends SequentialCommandGroup {
    */
   public AutonomousDistance(DrivetrainSubsystem drivetrain) {
     addCommands(
-        new DriveDistance(-1, 10, drivetrain),
-        new TurnDegrees(-1, 180, drivetrain),
-        new DriveDistance(-1, 10, drivetrain),
-        new TurnDegrees(1, 180, drivetrain));
+        new InstantCommand(() -> CoralVisualizer.pickupCoral()),
+        new TeleportToStart(drivetrain),
+        new DriveDistance(1, 1.37, drivetrain),
+        new TurnDegrees(.5, -60, drivetrain),  
+        new DriveDistance(1, 1.2, drivetrain),
+        CoralVisualizer.shoot()); 
   }
 }

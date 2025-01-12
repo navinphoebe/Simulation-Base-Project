@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DrivetrainSubsystem;
 
@@ -23,6 +24,8 @@ public class DriveDistance extends Command {
    * @param drive The drivetrain subsystem on which this command will run
    */
   public DriveDistance(double speed, double meters, DrivetrainSubsystem drive) {
+    double sign = DriverStation.getAlliance().isPresent()
+    && DriverStation.getAlliance().get() == DriverStation.Alliance.Red ? 1 : -1;
     m_distance = meters;
     m_speed = speed;
     m_drive = drive;
