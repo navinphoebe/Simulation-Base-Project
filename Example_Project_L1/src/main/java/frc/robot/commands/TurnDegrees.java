@@ -6,7 +6,6 @@ package frc.robot.commands;
 
 import frc.robot.Constants;
 import frc.robot.subsystems.DrivetrainSubsystem;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 
 public class TurnDegrees extends Command {
@@ -14,7 +13,6 @@ public class TurnDegrees extends Command {
   private double m_degrees;
   private final double m_speed;
   private double startDegrees;
-  private double sign = 1;
 
   /**
    * Creates a new TurnDegrees. This command will turn your robot for a desired rotation (in
@@ -25,8 +23,8 @@ public class TurnDegrees extends Command {
    * @param drive The drive subsystem on which this command will run
    */
   public TurnDegrees(double speed, double degrees, DrivetrainSubsystem drive) {
-    m_degrees = degrees * sign;
-    m_speed = speed * sign;
+    m_degrees = degrees;
+    m_speed = speed;
     m_drive = drive;
     addRequirements(drive);
   }
@@ -62,7 +60,7 @@ public class TurnDegrees extends Command {
   public boolean isFinished() {
     double difference = startDegrees - m_drive.getPose().getRotation().getDegrees();
     difference %= 360;
-    difference += 360 * sign;
+    difference += 360;
     difference %= 360;
     double distance = m_degrees - difference;
     return Math.abs(distance) < Constants.AUTO_TURNING_DEADBAND;
